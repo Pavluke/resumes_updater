@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:resumes_updater/add_new_service_screen.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -9,7 +10,10 @@ class MainScreen extends StatelessWidget {
       theme: ThemeData.dark(),
       home: Scaffold(
         floatingActionButton: ElevatedButton(
-          onPressed: () {},
+          onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const AddNewServiceScreen())),
           style: ElevatedButton.styleFrom(
               shape: const CircleBorder(), minimumSize: const Size(50, 50)),
           child: const Icon(Icons.add),
