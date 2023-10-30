@@ -7,7 +7,7 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.dark(),
+      theme: ThemeData.dark(useMaterial3: true),
       home: Scaffold(
         floatingActionButton: ElevatedButton(
           onPressed: () => Navigator.push(
@@ -28,10 +28,44 @@ class MainScreen extends StatelessWidget {
                 child: ListTile(
                   onTap: () {},
                   trailing: const Icon(Icons.keyboard_arrow_right_rounded),
-                  leading: const Icon(Icons.abc), // иконка сайта
-                  title: const Text("Title"), // аккаунт
-                  subtitle: const Text(
-                      "Subtitle"), // ласт апдейт ор тайм то некст апдейт
+                  leading: Stack(
+                    alignment: AlignmentDirectional.center,
+                    children: [
+                      const Text(
+                        'hh',
+                        style: TextStyle(color: Colors.red, fontSize: 20),
+                      ),
+                      CircularProgressIndicator(
+                        value: 0.5,
+                        color: Colors.red,
+                        backgroundColor: Colors.red.withOpacity(0.2),
+                      )
+                    ],
+                  ),
+                  title: const Text("Title"),
+                  subtitle: const Text("Subtitle"),
+                ),
+              ),
+              SliverToBoxAdapter(
+                child: ListTile(
+                  onTap: () {},
+                  trailing: const Icon(Icons.keyboard_arrow_right_rounded),
+                  leading: Stack(
+                    alignment: AlignmentDirectional.center,
+                    children: [
+                      const Text(
+                        'SJ',
+                        style: TextStyle(color: Colors.green, fontSize: 20),
+                      ),
+                      CircularProgressIndicator(
+                        value: 0.5,
+                        color: Colors.green,
+                        backgroundColor: Colors.green.withOpacity(0.2),
+                      )
+                    ],
+                  ), //сайта
+                  title: const Text("Title"),
+                  subtitle: const Text("Subtitle"),
                 ),
               )
             ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:resumes_updater/webview_screen.dart';
 
 class AddNewServiceScreen extends StatelessWidget {
   const AddNewServiceScreen({super.key});
@@ -6,7 +7,7 @@ class AddNewServiceScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.dark(),
+      theme: ThemeData.dark(useMaterial3: true),
       home: Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -25,7 +26,14 @@ class AddNewServiceScreen extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.red,
                     ),
-                    onPressed: () {},
+                    onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const WebViewScreen(
+                                  //link: "https://hh.ru/account/login/",
+                                  link:
+                                      "https://spb.hh.ru/?hhtmFrom=account_login",
+                                ))),
                     child: const ListTile(
                       title: Text("HeadHunter"),
                     )),
@@ -36,7 +44,12 @@ class AddNewServiceScreen extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.green,
                     ),
-                    onPressed: () {},
+                    onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const WebViewScreen(
+                                  link: "https://www.superjob.ru/auth/login/",
+                                ))),
                     child: const ListTile(
                       title: Text("SuperJob"),
                     )),
